@@ -2,3 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --color-orange-base: #F24D0D;
+  --color-orange-dark: #C43C08;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  line-height: 120%;
+}
+
