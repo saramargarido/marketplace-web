@@ -24,7 +24,8 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: 'var(--font-inter)',
+        dmsans: ['var(--font-dm-sans)', 'sans-serif'],
+        poppins: ['var(--font-poppins)', 'sans-serif'],
       },
       gridTemplateRows: {
         app: 'min-content max-content',
