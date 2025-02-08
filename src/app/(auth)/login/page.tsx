@@ -1,5 +1,5 @@
 import Button from '@/app/components/button'
-import { ArrowRight } from '@/app/components/icons'
+import { ArrowRight, Lock, Mail, OpenEye } from '@/app/components/icons'
 import Input from '@/app/components/input'
 
 export default function Login() {
@@ -21,15 +21,15 @@ export default function Login() {
               type="text"
               label="e-mail"
               placeholder="Seu e-mail cadastrado"
-              iconLeft="/mail.svg"
+              iconLeft={<Mail styles="fill-gray-200" />}
             />
             <Input
               name="password"
               type="password"
               label="Senha"
               placeholder="Sua senha de acesso"
-              iconLeft="/access.svg"
-              iconRight="/view.svg"
+              iconLeft={<Lock styles="fill-gray-200" />}
+              iconRight={<OpenEye styles="fill-gray-200" />}
             />
           </div>
           <Button text="Acessar" type="submit" iconRight={<ArrowRight />} />

@@ -1,12 +1,10 @@
-import Image from 'next/image'
-
 interface InputProps {
   label: string
   placeholder: string
   name: string
   type?: string
-  iconLeft?: string
-  iconRight?: string
+  iconLeft?: React.ReactNode
+  iconRight?: React.ReactNode
 }
 export default function Input({
   label,
@@ -22,18 +20,14 @@ export default function Input({
         {label}
       </label>
       <div className="flex items-center border-b border-gray-200 py-[.875rem] gap-2">
-        {iconLeft && (
-          <Image src={iconLeft} alt="Left Icon" width={24} height={24} />
-        )}
+        {iconLeft}
         <input
           type={type}
           id={name}
           className="flex-1 placeholder-gray-200"
           placeholder={placeholder}
         />
-        {iconRight && (
-          <Image src={iconRight} alt="Right Icon" width={24} height={24} />
-        )}
+        {iconRight}
       </div>
     </div>
   )
