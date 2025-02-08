@@ -10,7 +10,7 @@ export default function Login() {
           <h1 className="font-dmsans text-gray-500 text-[1.5rem] font-bold">
             Acesse sua conta
           </h1>
-          <p className="text-gray-300">
+          <p className="text-gray-300 text-sm">
             Informe seu e-mail e senha para entrar
           </p>
         </div>
