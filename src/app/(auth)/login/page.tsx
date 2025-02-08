@@ -37,7 +37,11 @@ export default function Login() {
       </div>
       <div className="flex flex-col gap-5">
         <p className="text-gray-300">Ainda não tem uma conta?</p>
-        <Button filled text="Cadastrar" iconRight={<ArrowRight />} />
+        <Button
+          variant="outlined"
+          text="Cadastrar"
+          iconRight={<ArrowRight />}
+        />
       </div>
     </div>
   )

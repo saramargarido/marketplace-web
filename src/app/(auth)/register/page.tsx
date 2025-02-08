@@ -76,7 +76,7 @@ export default function Register() {
       </div>
       <div className="flex flex-col gap-5">
         <p className="text-gray-300">Já tem uma conta?</p>
-        <Button filled text="Acessar" iconRight={<ArrowRight />} />
+        <Button variant="outlined" text="Acessar" iconRight={<ArrowRight />} />
       </div>
     </div>
   )

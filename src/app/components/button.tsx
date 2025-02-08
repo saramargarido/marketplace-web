@@ -1,11 +1,14 @@
+import { ButtonHTMLAttributes } from 'react'
+
 interface ButtonProps {
   text: string
   type?: 'button' | 'submit' | 'reset' | undefined
   iconRight?: React.ReactNode
   iconLeft?: React.ReactNode
-  filled?: boolean
+  variant?: 'filled' | 'link' | 'outlined'
+  isActive?: boolean
   fullWidth?: boolean
-  onClick?: () => void
+  styles?: string
 }
 
 export default function Button({
@@ -13,22 +16,36 @@ export default function Button({
   type,
   iconRight,
   iconLeft,
-  filled = false,
+  variant = 'filled',
   fullWidth = false,
-  onClick,
-}: ButtonProps) {
-  const filledStyles = filled
-    ? `border-orange-base bg-white text-orange-base hover:bg-orange-base hover:text-white`
-    : `border-white bg-orange-base text-white hover:bg-white hover:text-orange-base hover:border hover:border-orange-base`
+  isActive = false,
+  styles = '',
+  ...props
+}: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) {
+  const filledStyles = (() => {
+    switch (variant) {
+      case 'link':
+        if (isActive) {
+          return 'border-none text-orange-base bg-shape hover:text-orange-dark'
+        } else {
+          return 'border-none text-gray-300 hover:bg-shape'
+        }
+      case 'outlined':
+        return 'border-orange-base bg-white text-orange-base hover:bg-orange-base hover:text-white'
+      case 'filled':
+      default:
+        return 'border-white bg-orange-base text-white hover:bg-white hover:text-orange-base hover:border hover:border-orange-base'
+    }
+  })()
 
   return (
     <button
       type={type ?? 'button'}
-      onClick={onClick}
-      className={`py-4 px-5 flex items-center justify-between rounded-[10px] border ${filledStyles} ${fullWidth ? 'w-full' : 'w-auto'} transition-colors duration-300`}
+      className={`py-4 px-5 flex items-center justify-between rounded-[10px] border ${filledStyles} ${fullWidth ? 'w-full' : 'w-auto'} transition-colors duration-300 gap-2 ${styles}`}
+      {...props}
     >
       {iconLeft}
-      <span>{text}</span>
+      <p>{text}</p>
       {iconRight}
     </button>
   )
