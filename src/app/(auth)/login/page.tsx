@@ -4,7 +4,7 @@ import Input from '@/app/components/input'
 
 export default function Login() {
   return (
-    <div className="flex flex-col justify-between bg-white flex-1 rounded-[2rem] px-[5rem] py-[4.5rem] gap-10">
+    <div className="flex flex-col justify-between min-h-[576px]">
       <div className="flex flex-col gap-[3rem]">
         <div className="flex flex-col gap-2">
           <h1 className="font-dmsans text-gray-500 text-[1.5rem] font-bold">

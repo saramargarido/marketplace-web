@@ -21,7 +21,13 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
       </div>
-      <div className="flex p-10 w-[611px]">{children}</div>
+      <div className="flex p-10 w-[611px] h-full">
+        <div className="bg-white flex-1 rounded-[2rem]  gap-10 overflow-hidden h-full">
+          <div className="h-full px-[5rem] py-[4.5rem] overflow-y-auto scroll-pr-6">
+            {children}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
