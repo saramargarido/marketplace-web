@@ -1,16 +1,6 @@
-'use client'
-import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts'
+import Chart from '../components/chart'
 import { Calendar, Store, Tag, Users } from '../components/icons'
 import TagCard from '../components/tag-card'
-import { data } from './data.mock'
 
 export default function Dashboard() {
   return (
@@ -53,43 +43,7 @@ export default function Dashboard() {
               </p>
             </div>
           </div>
-          <ResponsiveContainer>
-            <LineChart
-              data={data}
-              style={{ fontSize: 10, maxHeight: 266 }}
-              margin={{ left: -30, bottom: 10 }}
-            >
-              <XAxis
-                dataKey="date"
-                axisLine={false}
-                tickLine={false}
-                dy={16}
-                tickFormatter={(date: string) =>
-                  new Date(date).getDate().toString()
-                }
-              />
-              <YAxis
-                stroke="#888"
-                axisLine={false}
-                tickLine={false}
-                tickCount={4}
-                allowDecimals={false}
-                tickFormatter={(value: number) => value.toString()}
-              />
-              <Tooltip />
-              <Line
-                type="monotone"
-                strokeWidth={2}
-                dataKey="visitors"
-                stroke={'#5EC5FD'}
-              />
-              <CartesianGrid
-                vertical={false}
-                strokeDasharray={'8 12'}
-                strokeOpacity={0.4}
-              />
-            </LineChart>
-          </ResponsiveContainer>
+          <Chart />
         </div>
       </div>
     </div>

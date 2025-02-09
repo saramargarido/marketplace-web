@@ -30,6 +30,9 @@ const config: Config = {
       gridTemplateRows: {
         app: 'min-content max-content',
       },
+      boxShadow: {
+        shape: '0px 2px 24px 0px #F5EAEA;',
+      },
     },
   },
   plugins: [],
