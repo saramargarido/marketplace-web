@@ -6,7 +6,7 @@ import { Box, Graph, Plus } from '../components/icons'
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex flex-col h-screen w-full">
-      <header className="flex p-5 justify-between items-center">
+      <header className="flex p-5 justify-between items-center border-b border-shape flex-wrap">
         <Image
           src="/logo.svg"
           width={200}
@@ -46,7 +46,9 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
           />
         </div>
       </header>
-      {children}
+      <div className="p-[4rem] mx-auto flex-1 w-full">
+        <div className="max-w-[1030px] flex-1 w-full">{children}</div>
+      </div>
     </div>
   )
 }

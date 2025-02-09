@@ -41,7 +41,7 @@ export default function Button({
   return (
     <button
       type={type ?? 'button'}
-      className={`py-4 px-5 flex items-center justify-between rounded-[10px] border ${filledStyles} ${fullWidth ? 'w-full' : 'w-auto'} transition-colors duration-300 gap-2 ${styles}`}
+      className={`flex items-center justify-between rounded-[10px] border ${filledStyles} ${fullWidth ? 'w-full' : 'w-auto'} transition-colors duration-300 gap-2 ${styles.length ? styles : 'py-4 px-5'}`}
       {...props}
     >
       {iconLeft}
