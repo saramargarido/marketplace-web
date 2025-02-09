@@ -5,7 +5,7 @@ interface TagCardProps {
 }
 export default function TagCard({ text, value, icon }: TagCardProps) {
   return (
-    <div className="flex p-3 bg-white rounded-[1.25rem] gap-4">
+    <div className="flex flex-1 p-3 bg-white rounded-[1.25rem] gap-4">
       <span className="flex justify-center items-center gap-4 w-[5rem] h-[5.375rem] bg-blue-light rounded-xl">
         {icon}
       </span>
