@@ -9,6 +9,7 @@ interface ButtonProps {
   isActive?: boolean
   fullWidth?: boolean
   styles?: string
+  textAlign?: 'text-left' | 'text-center' | 'text-right'
 }
 
 export default function Button({
@@ -20,6 +21,7 @@ export default function Button({
   fullWidth = false,
   isActive = false,
   styles = '',
+  textAlign = 'text-left',
   ...props
 }: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) {
   const filledStyles = (() => {
@@ -45,7 +47,7 @@ export default function Button({
       {...props}
     >
       {iconLeft}
-      <p>{text}</p>
+      <p className={`flex-1 ${textAlign}`}>{text}</p>
       {iconRight}
     </button>
   )

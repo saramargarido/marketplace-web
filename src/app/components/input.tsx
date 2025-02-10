@@ -1,5 +1,5 @@
 interface InputProps {
-  label: string
+  label?: string
   placeholder: string
   name: string
   type?: string
@@ -16,9 +16,11 @@ export default function Input({
 }: InputProps) {
   return (
     <div className="flex flex-col">
-      <label htmlFor={name} className="text-gray-300 text-xs uppercase">
-        {label}
-      </label>
+      {label && (
+        <label htmlFor={name} className="text-gray-300 text-xs uppercase">
+          {label}
+        </label>
+      )}
       <div className="flex items-center border-b border-gray-200 py-[.875rem] gap-2">
         {iconLeft}
         <input
