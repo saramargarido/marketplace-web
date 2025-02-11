@@ -2,8 +2,9 @@ import Image from 'next/image'
 import { ReactNode } from 'react'
 import Button from '../components/button'
 import { Box, Graph, Plus } from '../components/icons'
+import NavButton from '../components/nav-button'
 
-export default function AuthLayout({ children }: { children: ReactNode }) {
+export default function HomeLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex flex-col h-screen w-full">
       <header className="flex p-5 justify-between items-center border-b border-shape flex-wrap">
@@ -15,19 +16,8 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
           alt="Logo"
         />
         <div className="flex gap-2">
-          <Button
-            text="Dashboard"
-            variant="link"
-            styles="text-sm px-4 py-2"
-            isActive
-            iconLeft={<Graph />}
-          />
-          <Button
-            text="Produtos"
-            variant="link"
-            iconLeft={<Box />}
-            styles="text-sm px-4 py-2"
-          />
+          <NavButton text="Dashboard" iconLeft={<Graph />} href="/" />
+          <NavButton text="Produtos" iconLeft={<Box />} href="/products" />
         </div>
         <div className="flex gap-2 items-center">
           <Button
