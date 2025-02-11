@@ -1,7 +1,9 @@
 import Button from '@/app/components/button'
 import { Loupe, Tag } from '@/app/components/icons'
 import Input from '@/app/components/input'
+import ProductCard from '@/app/components/product-card'
 import Select from '@/app/components/select'
+import { products } from './products.mock'
 
 export default function Products() {
   return (
@@ -14,7 +16,7 @@ export default function Products() {
           Acesse gerencie a sua lista de produtos à venda
         </p>
       </div>
-      <div className="flex">
+      <div className="flex gap-6 items-start">
         <div className="flex flex-col p-6 bg-white rounded-[1.25rem] gap-6">
           <p className="text-gray-300 text-lg">Filtrar</p>
           <form className="flex flex-col gap-10">
@@ -42,6 +44,18 @@ export default function Products() {
               fullWidth
             />
           </form>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          {products.map((product) => (
+            <ProductCard
+              id={product.id}
+              key={product.id}
+              title={product.title}
+              description={product.description}
+              priceInCents={product.priceInCents}
+              attachments={product.attachments}
+            />
+          ))}
         </div>
       </div>
     </div>
