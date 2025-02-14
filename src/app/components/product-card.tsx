@@ -30,7 +30,7 @@ export default function ProductCard({
   attachments,
 }: ProductCardProps) {
   return (
-    <div className="p-1 bg-white rounded-[1.25rem] w-[330px]">
+    <div className="p-1 bg-white rounded-[1.25rem] md:w-[330px] w-full">
       <div className="relative h-[144px]">
         <Image
           src={attachments.create.path}

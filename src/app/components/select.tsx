@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { SelectHTMLAttributes, useState } from 'react'
 import { ArrowDown, Check } from './icons'
 
 interface SelectOption {
@@ -13,6 +13,7 @@ interface SelectProps {
   name: string
   iconLeft?: React.ReactNode
   options: SelectOption[]
+  fill?: boolean
 }
 
 export default function Select({
@@ -21,7 +22,9 @@ export default function Select({
   name,
   iconLeft,
   options,
-}: SelectProps) {
+  fill = false,
+  ...props
+}: SelectProps & SelectHTMLAttributes<HTMLSelectElement>) {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState<SelectOption | null>(
     null,
@@ -33,7 +36,7 @@ export default function Select({
   }
 
   return (
-    <div className="flex flex-col relative">
+    <div className={`flex flex-col relative ${fill ? 'w-full' : ''}`}>
       {label && (
         <label htmlFor={name} className="text-gray-300 text-xs uppercase">
           {label}
@@ -41,7 +44,7 @@ export default function Select({
       )}
       <div
         className="flex items-center border-b border-gray-200 py-[.875rem] gap-2 cursor-pointer"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => (props.disabled ? {} : setIsOpen(!isOpen))}
       >
         {iconLeft}
         <input
@@ -55,12 +58,14 @@ export default function Select({
         >
           {selectedOption ? selectedOption.label : placeholder}
         </div>
-        <ArrowDown
-          size={24}
-          styles={`fill-gray-200 transition-transform duration-300 ${
-            isOpen ? 'rotate-180' : ''
-          }`}
-        />
+        {!props.disabled && (
+          <ArrowDown
+            size={24}
+            styles={`fill-gray-200 transition-transform duration-300 ${
+              isOpen ? 'rotate-180' : ''
+            }`}
+          />
+        )}
       </div>
       <div
         className={`absolute left-0 right-0 top-full mt-1 bg-white rounded-lg shadow-shape z-10 overflow-hidden transition-all duration-300 ${

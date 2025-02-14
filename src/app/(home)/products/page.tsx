@@ -16,11 +16,11 @@ export default function Products() {
           Acesse gerencie a sua lista de produtos à venda
         </p>
       </div>
-      <div className="flex gap-6 items-start">
+      <div className="flex gap-6 items-start flex-col lg:flex-row">
         <div className="flex flex-col p-6 bg-white rounded-[1.25rem] gap-6">
           <p className="text-gray-300 text-lg">Filtrar</p>
           <form className="flex flex-col gap-10">
-            <div className="flex flex-col gap-5 min-w-[280px]">
+            <div className="flex lg:flex-col gap-5 min-w-[280px] flex-wrap">
               <Input
                 name="search"
                 placeholder="Pesquisar"

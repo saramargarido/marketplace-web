@@ -1,26 +1,18 @@
-import { InputHTMLAttributes } from 'react'
+import { TextareaHTMLAttributes } from 'react'
 
 interface InputProps {
   label?: string
   placeholder?: string
   name: string
-  type?: string
-  iconLeft?: React.ReactNode
-  iconRight?: React.ReactNode
   fill?: boolean
-  mask?: 'currency'
 }
-export default function Input({
+export default function Textarea({
   label,
   placeholder = '',
   name,
-  type = 'text',
-  iconLeft,
-  iconRight,
-  mask,
   fill = false,
   ...props
-}: InputProps & InputHTMLAttributes<HTMLInputElement>) {
+}: InputProps & TextareaHTMLAttributes<HTMLTextAreaElement>) {
   return (
     <div className={`flex flex-col ${fill ? 'w-full' : ''}`}>
       {label && (
@@ -29,17 +21,13 @@ export default function Input({
         </label>
       )}
       <div className="flex items-center border-b border-gray-200 py-[.875rem] gap-2 disabled:bg-transparent">
-        {iconLeft}
-        {mask === 'currency' && <span className="text-orange-base">R$</span>}
-
-        <input
+        <textarea
           {...props}
-          type={type}
           id={name}
+          rows={4}
           className="flex-1 placeholder-gray-200 disabled:bg-transparent"
           placeholder={placeholder}
         />
-        {iconRight}
       </div>
     </div>
   )
