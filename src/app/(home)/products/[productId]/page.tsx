@@ -1,8 +1,5 @@
-import Button from '@/app/components/button'
-import { ArrowLeft } from '@/app/components/icons'
-import Input from '@/app/components/input'
-import Select from '@/app/components/select'
-import Textarea from '@/app/components/textarea'
+import { ArrowLeft, Check, Not } from '@/app/components/icons'
+import ProductForm from '@/app/components/product-form'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -20,9 +17,27 @@ export default function Product() {
         <h1 className="font-dmsans text-gray-500 text-[1.5rem] font-bold">
           Editar produto
         </h1>
-        <p className="text-gray-300 text-sm">
-          Gerencie as informações do produto cadastrado
-        </p>
+        <div className="flex justify-between gap-4 flex-wrap">
+          <p className="text-gray-300 text-sm">
+            Gerencie as informações do produto cadastrado
+          </p>
+          <div className="flex gap-4">
+            <Link
+              href={'/products'}
+              className="text-orange-base flex gap-2 text-sm items-center"
+            >
+              <Check />
+              <span>Marcar como vendido</span>
+            </Link>
+            <Link
+              href={'/products'}
+              className="text-orange-base flex gap-2 text-sm items-center"
+            >
+              <Not />
+              <span>Desativar anúncio</span>
+            </Link>
+          </div>
+        </div>
       </div>
       <div className="flex gap-6 items-start lg:flex-row flex-col">
         <div className="relative min-w-[415px] max-w-full w-full">
@@ -45,58 +60,12 @@ export default function Product() {
               Anunciado
             </small>
           </div>
-          <form className="flex flex-col gap-10">
-            <div className="flex flex-col gap-5">
-              <div className="grid sm:grid-cols-[2fr_1fr] gap-5">
-                <Input label="Título" name="title" value="Sofá" disabled />
-                <Input
-                  label="Título"
-                  name="title"
-                  value="772.99"
-                  mask="currency"
-                  type="number"
-                  disabled
-                />
-              </div>
-              <div className="flex">
-                <Textarea
-                  name="description"
-                  label="Descrição"
-                  value={
-                    'Sofá revestido em couro legítimo, com estrutura em madeira maciça e pés em metal cromado.'
-                  }
-                  disabled
-                  fill
-                />
-              </div>
-              <div className="flex">
-                <Select
-                  label="Categoria"
-                  name="category"
-                  placeholder="Categoria"
-                  fill
-                  disabled
-                  options={[
-                    { value: 'mobile', label: 'Móvel' },
-                    { value: 'mobile2', label: 'Móvel2' },
-                  ]}
-                />
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <Button
-                fullWidth
-                text="Cancelar"
-                variant="outlined"
-                textAlign="text-center"
-              />
-              <Button
-                fullWidth
-                text="Salvar e publicar"
-                textAlign="text-center"
-              />
-            </div>
-          </form>
+          <ProductForm
+            title="Sofá"
+            price="772.99"
+            description="Sofá revestido em couro legítimo, com estrutura em madeira maciça e pés em metal cromado."
+            category={{ value: 'mobile', label: 'Móvel' }}
+          />
         </div>
       </div>
     </div>
