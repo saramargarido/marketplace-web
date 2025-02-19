@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { DM_Sans as DmSans, Poppins } from 'next/font/google'
+import ReactQueryProvider from './contexts/react-query'
 import './globals.css'
 
 const poppins = Poppins({
@@ -27,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt" className={`${poppins.variable} ${dmsans.variable}`}>
-      <body className="bg-background">{children}</body>
+      <body className="bg-background">
+        <ReactQueryProvider>{children}</ReactQueryProvider>
+      </body>
     </html>
   )
 }

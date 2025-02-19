@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react'
 
-interface InputProps {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
   placeholder?: string
   name: string
@@ -9,7 +9,9 @@ interface InputProps {
   iconRight?: React.ReactNode
   fill?: boolean
   mask?: 'currency'
+  error?: string
 }
+
 export default function Input({
   label,
   placeholder = '',
@@ -19,8 +21,10 @@ export default function Input({
   iconRight,
   mask,
   fill = false,
+  error = '',
   ...props
-}: InputProps & InputHTMLAttributes<HTMLInputElement>) {
+}: InputProps) {
+  console.log(error)
   return (
     <div className={`flex flex-col ${fill ? 'w-full' : ''}`}>
       {label && (
@@ -36,6 +40,7 @@ export default function Input({
           {...props}
           type={type}
           id={name}
+          name={name}
           className="flex-1 placeholder-gray-200 disabled:bg-transparent"
           placeholder={placeholder}
         />
